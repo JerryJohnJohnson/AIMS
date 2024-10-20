@@ -54,7 +54,4 @@ model.fit(X,y)
 # change kernel
 
 
-print("Making predictions for the following houses:")
-print(X)
-print("The predictions are")
-print(model.predict(X))
+model.predict([[0,1,0,60000,5]])
