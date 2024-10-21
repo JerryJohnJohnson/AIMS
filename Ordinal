@@ -1,0 +1,49 @@
+import pandas as pd
+
+____________________________
+
+
+df=pd.read_csv("carprices.csv")
+df
+
+____________________________
+
+new = df.drop('Age(yrs)',axis=1)
+new
+
+_____________________________
+
+Car_Model = ['Audi A5', 'Mercedez Benz C class','BMW X5']
+
+______________________________
+
+from sklearn.preprocessing import OrdinalEncoder
+
+_________________________________
+
+enc = OrdinalEncoder(categories=[Car_Model])
+
+_________________________________
+
+new['Car_Model'] = enc.fit_transform(new[['Car_Model']])
+new
+
+_______________________________
+
+X = new.drop('Sell_Price',axis=1)
+X
+
+______________________________
+
+y = new.Sell_Price
+y
+
+______________________________
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X,y)
+
+_________________________________________
+
+model.predict([[2,50000]])
