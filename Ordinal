@@ -1,49 +1,47 @@
 import pandas as pd
 
-____________________________
+# change kernel
 
 
 df=pd.read_csv("carprices.csv")
 df
 
-____________________________
+# change kernel
 
 new = df.drop('Age(yrs)',axis=1)
 new
 
-_____________________________
+# change kernel
 
 Car_Model = ['Audi A5', 'Mercedez Benz C class','BMW X5']
 
-______________________________
-
+# change kernel
 from sklearn.preprocessing import OrdinalEncoder
 
-_________________________________
-
+# change kernel
 enc = OrdinalEncoder(categories=[Car_Model])
 
-_________________________________
+# change kernel
 
 new['Car_Model'] = enc.fit_transform(new[['Car_Model']])
 new
 
-_______________________________
+# change kernel
 
 X = new.drop('Sell_Price',axis=1)
 X
 
-______________________________
+# change kernel
 
 y = new.Sell_Price
 y
 
-______________________________
+# change kernel
 
 from sklearn.linear_model import LinearRegression
 model = LinearRegression()
 model.fit(X,y)
 
-_________________________________________
+# change kernel
 
 model.predict([[2,50000]])
